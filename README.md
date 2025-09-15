@@ -1,36 +1,118 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# FitCheck
+A web-based outfit planning app that helps you plan, organize, and save outfit combinations using your actual wardrobe.
+
+ 
+** Currently in development - Phase 1 MVP in progress**
+
+
+## Tech Stack
+- **Frontend:** Next.js, React, TypeScript, Tailwind CSS
+- **Backend:** Java Spring Boot
+- **Tools:** ESLint, Turbopack, Git
+- **Platform:** Web-based application
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+- Node.js (v18 or higher)
+- npm, yarn, pnpm, or bun
+- Java 17+ and Maven (for backend)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Installation
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/NikkiCerniuk/FitCheck--web.git
+   cd FitCheck--web
+   ```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+2. **Install frontend dependencies**
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+3. **Start the development server**
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   # or
+   pnpm dev
+   # or
+   bun dev
+   ```
 
-## Learn More
+4. **Open your browser**
+   Navigate to [http://localhost:3000](http://localhost:3000)
 
-To learn more about Next.js, take a look at the following resources:
+### Backend Setup
+*Backend setup instructions will be added when Spring Boot backend is implemented.*
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Development Roadmap
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Phase 1: Minimum Viable Product
+- [x] (framework scaffold exists, frontend work started with login page
+- [ ] Project setup and configuration
+- [ ] Email/password authentication
+- [ ] Wardrobe management:
+  - [ ] Add clothing items with photo upload
+  - [ ] Specify clothing type (Top, Bottoms, Shoes, Jacket)
+  - [ ] View all clothing items by type
+  - [ ] Remove items from wardrobe
 
-## Deploy on Vercel
+### Phase 2: Stored Outfit Creation And Improved Login
+- [ ] Swipe across different types and compile an outfit
+- [ ] "Remember me" for login
+- [ ] Full functioning password retrieval if forgotten password
+  - [ ] Prompts "forgot password" if multiple failed login attempts
+- [ ] Save/unsave favorite outfits
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Phase 3: Additional Outfit Creation Features
+- [ ] More outfit type options:
+  - [ ] Socks, Bra/underwear, Earrings, Sunglasses, Wrist accessories, Custom types, Edit types
+- [ ] Tagging outfits for multiple types
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Phase 4: Multi-Outfit Organization Features
+- [ ] Create outfit bundles with category custom catagory names
+  - [ ] Trip name, Season, Occasion (going out dancing, everyday, formal, family safe, work, gym)
+- [ ] Duplicate warning when saving the same outfit to the same bundle
+- [ ] Swipe through to create outfit or view all type options on one screen
+- [ ] Tutorial for new users
+
+### Phase 5: Advanced Features
+- [ ] Assign saved outfits to calendar days
+- [ ] Layer outfits (selecting multiple of the same type)
+- [ ] Additional App themes
+  - [ ] Optional music for app themes
+
+### Optional Phase 6: Virtual Try-On
+- [ ] Virtual try-on with 360 views
+- [ ] On-device try-on
+
+### Optional Phase 7: Shopping Integration
+- [ ] Preview how website clothing might match your closet
+- [ ] Additional outfit items: makeup, nail polish, hairstyle
+
+### Optional Phase 8: Social Features
+- [ ] Share closets with other users
+- [ ] Create shared closets with fit categories
+- [ ] Borrow garments from friends with size warnings
+- [ ] "Favorite" outfits and garments in other users' closets
+
+## Current Status
+**Phase 1 MVP** -  Initial frontend setup complete. Currently troubleshooting bugs and hooking the front end to the backend.
+
+## Contributing
+This is currently a personal project. If you're interested in contributing, please reach out! :)
+
+## Future Considerations
+- Mobile app development
+- Integration with fashion retailers
+- AI-powered outfit suggestions
+- Weather-based outfit recommendations
+
+## Contact
+- **Developer:** Nikki Cerniuk
+- **Repository:** [GitHub](https://github.com/NikkiCerniuk/FitCheck--web)
