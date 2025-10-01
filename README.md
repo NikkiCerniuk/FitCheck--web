@@ -54,7 +54,7 @@ A web-based outfit planning app that helps you plan, organize, and save outfit c
 
 ### Phase 1: Minimum Viable Product
 - [x] (framework scaffold exists, frontend work started with login page
-- [ ] Project setup and configuration
+- [x] Project setup and configuration
 - [ ] Email/password authentication
 - [ ] Wardrobe management:
   - [ ] Add clothing items with photo upload

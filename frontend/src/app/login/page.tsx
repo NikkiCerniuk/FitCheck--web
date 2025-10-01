@@ -2,7 +2,7 @@
 
 'use client'
 
-import {useState} from 'react'; 
+import {useState, FormEvent} from 'react'; 
 
 
 
@@ -16,29 +16,55 @@ const[password,setPassword] = useState ('');
 const[isLoading,setLoading]= useState(false);
 
 
-const handleSubmit = async (e) => {
+/*
+async: do this in the background while other code is running
+e: stands for "event". Means that something happened. Usually triggered by a user interaction.
+*/
 
-e.preventDefault(); /*do not allow the page to reset while their login info is loading*/
-
-setIsLoading(true);
-
-//TODO: connect your Spring Boot backend
-	// TODO: remove this line of code before web deployment
-
-
-console.log('Login attempt number for email', {email});
+const handleSubmit = async (e: FormEvent<HTMLFormElement>) => { //FormEvent...ment> tells TypeScript exactly what type e is 
+e.preventDefault(); //prevents default form submission behavior (stops the page from reloading). 
+setLoading(true); //this will show "signing in" on the button
 
 
-//simulate API call
+try{ //tries to sign in using the username and password submitted by the user (after converting it into a string from an object)
+/*
+await: makes it so that we do not end up with an intermittent "promise". We wait until the result of the fetch is complete
+fetch: means "please send an HTTP request to this url"
+*/
+const response = await fetch ('http://localhost:8080/api/auth/login',{
+method: 'POST', //means send data to the server 
+headers:{
+	'Content-Type': 'application/json',
+},
+body: JSON.stringify({email, password}) //takes email and password variables, wraps them in an object, then converts them to a JSON string so they can be sent to the http request body
 
-setTimeout(() => {
-	setIsLoading(false);
-	alert('Login functionality will connect to your backend');
-	},100);
+});
+
+if(response.ok){
+	alert('Login successful'); // alert display a pop up dialogue box to the user that they can clear by hitting "ok"
+	//TO DO: redirect after successful login 
+}else{
+	alert('Invalid credentials');
+}
+}
+
+catch(err){
+console.error('Login error:', err);
+alert('Unable to connect to server');
+}
+
+finally{
+	setLoading(false); //regardless login working or not, loading spinner resets everytime 
+	console.log('Login attempt number for email', {email});
+}
 };
 
 
 
+///
+
+
+/* keeps an updated UI of the changes a user has made in the app. Showing all the user’s outfits when they login instead of a “create first outfit” screen for instance. Piece of memory in the component */
 return(
 
 <div className = {'min-h-screen bg-gradient-to-br from-pink-50 to-purple-50 dark:from-gray-900 dark:to-gray-800 flex items-center justify-center p-4'}>
@@ -66,6 +92,12 @@ Welcome Back
 <div className = {'space-y-6'}>
 {/* email field */}
 
+{/*
+form: is an HTML element that groups together fields to be submitted (username & password in this case)
+onSubmit: triggered when the button is clicked 
+classNa...y-6: adds vertical spacing between children
+*/}
+<form onSubmit={handleSubmit} className="space-y-6">
 <div>
 
 {/* html for connects the email to this input. If the user clicks on this, it will jump to the email box. Label is for form fields*/}
@@ -131,11 +163,11 @@ Password
 <button
 	type="submit"
 	disabled={isLoading}
-	onClick={handleSubmit} 
 	className= {'w-full bg-gradient-to-r from-pink-500 to-purple-600 text-white font-semibold py-3 px-4 rounded-lg hover:from-pink-600 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200'}
 >
 {isLoading ? 'Signing in...' : 'Sign In'}
 </button>
+</form>
 
 </div>
 
@@ -147,7 +179,7 @@ Password
 	Don't have an account?{' '}
 	<button
 	onClick={() => alert('Sign-up page coming next!')}
-	className= {'text-sm text-pink-600 dark:text-pink-400 hover:text-pink-700 dark:text-pink-300 font-medium'}
+	className= {'text-sm text-pink-600 dark:text-pink-400 hover:text-pink-700 dark:hover:text-pink-300 font-medium'}
 >
 Sign up
 </button>
@@ -165,4 +197,3 @@ Upgrade your style. Simplify your routine.
 
 );
 }
-
