@@ -31,7 +31,7 @@ try{ //tries to sign in using the username and password submitted by the user (a
 await: makes it so that we do not end up with an intermittent "promise". We wait until the result of the fetch is complete
 fetch: means "please send an HTTP request to this url"
 */
-const response = await fetch ('http://localhost:8080/api/auth/login',{
+const response = await fetch ('http://localhost:8080/api/auth/login',{ // TO DO: should be abstracted later into .env.local for easier configuration
 method: 'POST', //means send data to the server 
 headers:{
 	'Content-Type': 'application/json',
@@ -66,20 +66,7 @@ finally{
 
 /* keeps an updated UI of the changes a user has made in the app. Showing all the user’s outfits when they login instead of a “create first outfit” screen for instance. Piece of memory in the component */
 return(
-
-<div className = {'min-h-screen bg-gradient-to-br from-pink-50 to-purple-50 dark:from-gray-900 dark:to-gray-800 flex items-center justify-center p-4'}>
-
-<div className = {'w-full max-w-md'}>
-
-{/*App logo and title*/}
-<div className = {'text-center mb-8'}>
-	<h1 className = {'text-4xl font-bold text-gray-900 dark:text-white mb-2'}>
-FitCheck
-	</h1>
-	<p className = {'text-gray-600 dark:text-gray-300'}>
-Your digital wardrobe
-</p>
-</div>
+<>
 
 
 {/* Login form */}
@@ -143,10 +130,6 @@ Password
 />
 </div>
 
-
-
-
-
 {/*forgot password*/}
 <div className = {'text-right'}>
 <button
@@ -186,14 +169,7 @@ Sign up
 </p>
 </div>
 </div>
-
-
-{/*footer*/}
-<div className = {'mt-8 text-center text-sm text-gray-400'}>
-Upgrade your style. Simplify your routine.
-</div>
-</div>
-</div>
+</>
 
 );
 }
