@@ -10,12 +10,13 @@ import org.springframework.context.annotation.Bean;// bean class allows us to ma
 import org.springframework.context.annotation.Configuration; //we have to import configuration so that spring boot will recongize bean objects 
 import org.springframework.security.config.annotation.web.builders.HttpSecurity; //allows developer to specify what endpoints require authorization, control permissions, and disable certain protections. HttpSecurity is the tool you use to build your security rules
 import org.springframework.security.web.SecurityFilterChain; //security filter chain is the finished set of security rules that springwork uses for your app 
-
 import org.springframework.web.cors.CorsConfiguration; //holds the rules (orgins, methods, headers)
 import org.springframework.web.cors.CorsConfigurationSource; //uses spring to look up what rules apply
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource; //impliments the specific rules determined by CorsConfigurationSource
-
 import java.util.Arrays; //in this instance we are using this to build arrays of strings quickly 
+import org.springframework.security.crypto.password.PasswordEncoder; //interface for encoding passwords
+import org.springframework.security.crypto.factory.PasswordEncoderFactories; //used for crreating PasswordEncoder instances 
+
 
 @Configuration
 public class SecurityConfig{
@@ -50,8 +51,6 @@ public class SecurityConfig{
 
  @Bean //bean: means that below this will be another object that can be managed by springboot 
 
-
-
  /*
 - corsConfigurationSource(): creates a spring bean object of type CorsConfigurationSource
 - CorsConfigurationSource: lookup function for CORS rules. This lookup function is URL specific
@@ -76,8 +75,22 @@ UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource(); 
 source.registerCorsConfiguration("/api/**", configuration);  //apply CORS to all /api/ endpoints. means anytime you see "/api/**" apply configuration
 return source;
 }
+
+
+
+@Bean
+/*
+ * PasswordEncoderFactories is responsible for building the password encoders
+ * createDelegatingPasswordEncoder is responsible for supporting multiple coding algorithms and then tagging each password with the algorithm used 
+ */
+public PasswordEncoder passwordEncoder(){
+return PasswordEncoderFactories.createDelegatingPasswordEncoder();
+}
+//TO DO: understand the password encoder bean and tehn also import the related imports for this to work 
 }
 
+
+//spring stores hashed not raw passwords for safety reasons. when a user inputs their password, its hashed and then spring compares that to the stored hash password to see if it matches
 
 
 

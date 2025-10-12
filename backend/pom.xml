@@ -52,6 +52,15 @@
 			<artifactId>h2</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+
+		<!-- we added this dependacy springboot can connect to postgre SQL -->
+		<dependency> <!-- dependacy means "hey we need this lib to run"-->
+		<groupId>org.postgresql</groupId> <!-- groupId means "this is the collection of artifacts where the lib is located"-->
+		<artifactId>postgresql</artifactId> <!-- artifact Id means "here is the specific lib we need from the collection of artifacts"-->
+		</dependency>
+
+<!--a dependancy is any exernal code that your program relies on to work -->
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -74,3 +83,4 @@
 	</build>
 
 </project>
+<!--pom.xml does things like hold all the dependanies then maven makes sense of all the dependanices. This is moreso for backend-->

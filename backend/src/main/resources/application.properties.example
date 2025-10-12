@@ -1,0 +1,34 @@
+#the point of this file is to tell springboot how to connect to your database. Its a configuration file
+#allows you to make changes (configure) your code across various development stages without having to rewrite a bunch of things. For instace: updating the port(s) that you want to use in various development stages.
+
+#name of this file 
+spring.application.name=backend 
+
+
+
+##Database connection
+#database location (localhost) and username (fitcheck)
+spring.datasource.url=jdbc:postgresql://localhost:5432/fitcheck
+
+#username and password to connect as admin
+spring.datasource.username= YourUsernameHere
+spring.datasource.password= YourPasswordHere
+
+
+#database driver (PostgreSQL). lets java talk to your database 
+spring.datasource.driver-class-name=org.postgresql.Driver
+
+
+
+##JPA settings are rules for how to use the blueprint of the table (blueprint = User.java in this case )
+#hibernate reads the JPA annovated User.java file and then translates operations into SQL so that the JDBC driver can run them 
+    #should springboot auto update the tabels and auto create them ?
+      spring.jpa.hibernate.ddl-auto=update
+    #should SQL show you the queries that its running
+      spring.jpa.show-sql=true
+    # what SQL dialect to use. technically this line is optional for this stack
+    spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+
+
+#one port per backend application itself. one per app
+server.port=8080

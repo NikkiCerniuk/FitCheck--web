@@ -8,6 +8,7 @@ A web-based outfit planning app that helps you plan, organize, and save outfit c
 ## Tech Stack
 - **Frontend:** Next.js, React, TypeScript, Tailwind CSS
 - **Backend:** Java Spring Boot
+- **Database:** PostgreSQL
 - **Tools:** ESLint, Turbopack, Git
 - **Platform:** Web-based application
 
@@ -55,7 +56,7 @@ A web-based outfit planning app that helps you plan, organize, and save outfit c
 ### Phase 1: Minimum Viable Product
 - [x] (framework scaffold exists, frontend work started with login page
 - [x] Project setup and configuration
-- [ ] Email/password authentication
+- [x] Email/password authentication
 - [ ] Wardrobe management:
   - [ ] Add clothing items with photo upload
   - [ ] Specify clothing type (Top, Bottoms, Shoes, Jacket)
