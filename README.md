@@ -9,7 +9,7 @@ A web-based outfit planning app that helps you plan, organize, and save outfit c
 - **Frontend:** Next.js, React, TypeScript, Tailwind CSS
 - **Backend:** Java Spring Boot
 - **Database:** PostgreSQL
-- **Tools:** ESLint, Turbopack, Git
+- **Tools:** ESLint, Turbopack, Git, Postman (API testing)
 - **Platform:** Web-based application
 
 ## Getting Started
@@ -20,7 +20,6 @@ A web-based outfit planning app that helps you plan, organize, and save outfit c
 - Java 17+ and Maven (for backend)
 
 ### Installation
-
 1. **Clone the repository**
    ```bash
    git clone https://github.com/NikkiCerniuk/FitCheck--web.git
@@ -58,21 +57,26 @@ A web-based outfit planning app that helps you plan, organize, and save outfit c
 - [x] Project setup and configuration
 - [x] Email/password authentication
 - [ ] Wardrobe management:
-  - [ ] Add clothing items with photo upload
-  - [ ] Specify clothing type (Top, Bottoms, Shoes, Jacket)
-  - [ ] View all clothing items by type
-  - [ ] Remove items from wardrobe
+  - [ ] Add new clothing via a text description
+  - [x] backend
+ - [ ] Specify clothing type (JACKET, TOP, BOTTOM, SOCKS, SHOES)
+  - [x] backend
+ - [ ] View all clothing items by type
+  - [x] backend
+ - [ ] Remove items from wardrobe
+  - [ ] backend
 
-### Phase 2: Stored Outfit Creation And Improved Login
+### Phase 2: Stored Outfit Creation, Photo Upload And Improved Login
 - [ ] Swipe across different types and compile an outfit
 - [ ] "Remember me" for login
+- [ ] Add clothing items with photo upload
 - [ ] Full functioning password retrieval if forgotten password
   - [ ] Prompts "forgot password" if multiple failed login attempts
 - [ ] Save/unsave favorite outfits
 
 ### Phase 3: Additional Outfit Creation Features
 - [ ] More outfit type options:
-  - [ ] Socks, Bra/underwear, Earrings, Sunglasses, Wrist accessories, Custom types, Edit types
+  - [ ] Custom types(ex: Bra,Underwear,Earrings,Sunglasses, Wrist accessories), Edit types, Delete types
 - [ ] Tagging outfits for multiple types
 
 ### Phase 4: Multi-Outfit Organization Features
@@ -103,10 +107,12 @@ A web-based outfit planning app that helps you plan, organize, and save outfit c
 - [ ] "Favorite" outfits and garments in other users' closets
 
 ## Current Status
-**Phase 1 MVP** -  Initial frontend setup complete. Currently troubleshooting bugs and hooking the front end to the backend.
+**Phase 1 MVP** -  backend MVP complete, working on 
+  - frontend MVP for Wardrobe 
+  - connecting the Wardrobe front end to the backend
 
 ## Contributing
-This is currently a personal project. If you're interested in contributing, please reach out! :)
+This is currently a personal project so I can gain full-stack familiarity. If you're interested in contributing, please reach out! :)
 
 ## Future Considerations
 - Mobile app development

@@ -34,7 +34,7 @@ public class SecurityConfig{
         .cors(cors->cors.configurationSource(corsConfigurationSource())) //gives a bean to springboot that lets it know what requests for webstie access to allow 
         .csrf(csrf->csrf.disable())  //stands for cross site request forgery 
         .authorizeHttpRequests(auth-> auth
-        .requestMatchers("/api/auth/**").permitAll()
+        .requestMatchers("/api/auth/**", "/api/wardrobe/**").permitAll()  //TO DO: fix this later when we add real authentification 
         .anyRequest().authenticated() //means "any other request besides /api/auth/** neeeds to be authenticated"
         );
         return http.build(); //we call http build bc that is the finalized version of http. returning just http wouldnt complie 
