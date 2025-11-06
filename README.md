@@ -6,7 +6,7 @@ A web-based outfit planning app that helps you plan, organize, and save outfit c
 
 
 ## Tech Stack
-- **Frontend:** Next.js, React, TypeScript, Tailwind CSS
+- **Frontend:** Next.js, React, TypeScript, Tailwind CSS, Figma
 - **Backend:** Java Spring Boot
 - **Database:** PostgreSQL
 - **Tools:** ESLint, Turbopack, Git, Postman (API testing)
@@ -53,7 +53,7 @@ A web-based outfit planning app that helps you plan, organize, and save outfit c
 ## Development Roadmap
 
 ### Phase 1: Minimum Viable Product
-- [x] (framework scaffold exists, frontend work started with login page
+- [x] framework scaffold exists
 - [x] Project setup and configuration
 - [x] Email/password authentication
 - [ ] Wardrobe management:
@@ -68,13 +68,14 @@ A web-based outfit planning app that helps you plan, organize, and save outfit c
 
 ### Phase 2: Stored Outfit Creation, Photo Upload And Improved Login
 - [ ] Swipe across different types and compile an outfit
+- [ ] fix login and registration UI so it matches that of the homepage
 - [ ] "Remember me" for login
 - [ ] Add clothing items with photo upload
 - [ ] Full functioning password retrieval if forgotten password
   - [ ] Prompts "forgot password" if multiple failed login attempts
 - [ ] Save/unsave favorite outfits
 
-### Phase 3: Additional Outfit Creation Features
+### Phase 3: Additional Outfit Type Features
 - [ ] More outfit type options:
   - [ ] Custom types(ex: Bra,Underwear,Earrings,Sunglasses, Wrist accessories), Edit types, Delete types
 - [ ] Tagging outfits for multiple types
@@ -86,7 +87,7 @@ A web-based outfit planning app that helps you plan, organize, and save outfit c
 - [ ] Swipe through to create outfit or view all type options on one screen
 - [ ] Tutorial for new users
 
-### Phase 5: Advanced Features
+### Phase 5: Layer Clothing, Assign to Days, Added Themes
 - [ ] Assign saved outfits to calendar days
 - [ ] Layer outfits (selecting multiple of the same type)
 - [ ] Additional App themes
@@ -96,11 +97,14 @@ A web-based outfit planning app that helps you plan, organize, and save outfit c
 - [ ] Virtual try-on with 360 views
 - [ ] On-device try-on
 
-### Optional Phase 7: Shopping Integration
+### Optional Phase 7: Outfit Suggestions
+- [ ] suggest new outfit combinations to user
+
+### Optional Phase 8: Shopping Integration
 - [ ] Preview how website clothing might match your closet
 - [ ] Additional outfit items: makeup, nail polish, hairstyle
 
-### Optional Phase 8: Social Features
+### Optional Phase 9: Social Features
 - [ ] Share closets with other users
 - [ ] Create shared closets with fit categories
 - [ ] Borrow garments from friends with size warnings
