@@ -6,7 +6,7 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
 
     const pathname = usePathname();
   const bgClass = pathname?.includes("/login")
-  ? "bg-[url('/Background5.jpg')] bg-no-repeat bg-center bg-[length:4000px_auto]"
+  ? "bg-[url('/Background5.jpg')] bg-no-repeat bg-center bg-[length:3800px_auto]"
   : "bg-[url('/Background19.jpg')] bg-no-repeat bg-center bg-[length:3500px_auto]";
 
 return (
@@ -14,7 +14,7 @@ return (
     <div className="container mx-auto px-6 py-16">
 
 
-                {/*old code below this line */}
+
                 <div className="text-center mb-16">
 
 

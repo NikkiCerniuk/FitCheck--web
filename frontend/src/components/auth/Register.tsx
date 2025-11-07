@@ -212,8 +212,12 @@ export default function RegisterPage() {
                 <button
                     type="submit"
                     disabled={isLoading}
-                    className="flex items-center justify-between tracking-[0.17em] text-[30px] font-[500] mt-10 w-full bg-white text-black py-10 px-10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-0 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
-                >
+                    className="flex items-center justify-between tracking-[0.17em] text-[30px] font-[500] 
+                mt-10 w-full bg-white text-black py-10 px-10 focus:outline-none focus-visible:ring-2 
+                focus-visible:ring-white/40 focus-visible:ring-offset-0 disabled:opacity-50 
+                disabled:cursor-not-allowed transition-all hover:bg-black/30
+                hover:text-white hover:shadow-[0_0_0_2px_rgba(255,255,255,0.25)] active:shadow-[0_0_0_4px_rgba(255,255,255,0.35)]"
+            >
                     <span>{isLoading ? 'CREATING ACCOUNT..' : 'SIGN UP'}</span>
                     <ArrowRight
                         className="flex-shrink-0"
