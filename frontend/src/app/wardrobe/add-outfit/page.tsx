@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { AddOutfit } from "../../../components/wardrobe/AddOutfit";
 
