@@ -6,13 +6,17 @@ Objective: bypass springboot security so that anyone can reach the login page be
 
 package io.github.nikkicerniuk.fitcheckweb;  //delares what package this current file is part of 
 
+import io.github.nikkicerniuk.fitcheckweb.security.JwtAuthFilter;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;// bean class allows us to make an object and then have spring manage that object 
 import org.springframework.context.annotation.Configuration; //we have to import configuration so that spring boot will recongize bean objects 
 import org.springframework.security.config.annotation.web.builders.HttpSecurity; //allows developer to specify what endpoints require authorization, control permissions, and disable certain protections. HttpSecurity is the tool you use to build your security rules
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain; //security filter chain is the finished set of security rules that springwork uses for your app 
 import org.springframework.web.cors.CorsConfiguration; //holds the rules (orgins, methods, headers)
 import org.springframework.web.cors.CorsConfigurationSource; //uses spring to look up what rules apply
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource; //impliments the specific rules determined by CorsConfigurationSource
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import java.util.Arrays; //in this instance we are using this to build arrays of strings quickly 
 import org.springframework.security.crypto.password.PasswordEncoder; //interface for encoding passwords
 import org.springframework.security.crypto.factory.PasswordEncoderFactories; //used for crreating PasswordEncoder instances 
@@ -20,6 +24,11 @@ import org.springframework.security.crypto.factory.PasswordEncoderFactories; //u
 
 @Configuration
 public class SecurityConfig{
+
+
+    @Autowired
+    private JwtAuthFilter jwtAuthFilter;
+
 
     @Bean
 
@@ -33,10 +42,12 @@ public class SecurityConfig{
             //TODO: re-enable CSRF later. we are just making sure that the front end is connected to the backend 
         .cors(cors->cors.configurationSource(corsConfigurationSource())) //gives a bean to springboot that lets it know what requests for webstie access to allow 
         .csrf(csrf->csrf.disable())  //stands for cross site request forgery 
+        .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
         .authorizeHttpRequests(auth-> auth
-        .requestMatchers("/api/auth/**", "/api/wardrobe/**").permitAll()  //TO DO: fix this later when we add real authentification 
+        .requestMatchers("/api/auth/**").permitAll()  //TO DO: fix this later when we add real authentification 
         .anyRequest().authenticated() //means "any other request besides /api/auth/** neeeds to be authenticated"
-        );
+        )
+        .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
         return http.build(); //we call http build bc that is the finalized version of http. returning just http wouldnt complie 
     }
 

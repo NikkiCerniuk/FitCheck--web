@@ -4,6 +4,7 @@ import org.springframework.http.ResponseEntity; //lets you build detailed HTTP r
 import io.github.nikkicerniuk.fitcheckweb.dto.LoginRequest; // allows spring to map user input (JSON) into a LoginRequest object
 import org.springframework.beans.factory.annotation.Autowired;
 import io.github.nikkicerniuk.fitcheckweb.service.UserService;
+import io.github.nikkicerniuk.fitcheckweb.service.TokenService;
 /* job of this file is to handle any post requests made to login or register */
 
 @RestController //handles http requests and returns responses 
@@ -13,6 +14,9 @@ public class AuthController {
 
 @Autowired 
 private UserService userService; 
+
+@Autowired
+private TokenService tokenService;
 
 
 @PostMapping("/login") //means the method below will handle POST requests sent to login.
@@ -26,7 +30,8 @@ This is the RequestBody which means that we want to take the JSON and deserializ
 */
 public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest){ //converts the JSON into a login request object 
     if(userService.validateLogin(loginRequest.getEmail(),loginRequest.getPassword())){
-        return ResponseEntity.ok("Login Successful");  //ResponseEntity represents the HTTP response
+        String token = tokenService.generateToken(loginRequest.getEmail());
+        return ResponseEntity.ok(token); //just returning the token already signifies a successful response
     }else{
         return ResponseEntity.status(401).body("Invalid Credentials"); //status 401 generally is used for authenication issues
     }

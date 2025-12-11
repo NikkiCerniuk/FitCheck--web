@@ -40,4 +40,13 @@ public boolean validateLogin(String email, String password){
     }
     return false;
 }
+
+
+public Long getUserIdByEmail (String email){
+    Optional<User> userOptional = userRepository.findByEmail(email);
+    if (userOptional.isPresent()) {
+            return userOptional.get().getId();
+        }
+        return null;
+}
 }
