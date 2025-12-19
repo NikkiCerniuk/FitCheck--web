@@ -2,7 +2,7 @@
 A web-based outfit planning app that helps you plan, organize, and save outfit combinations using your actual wardrobe.
 
  
-** Currently in development - Phase 1 MVP in progress**
+**Currently in development - Phase 1 MVP in progress**
 
 
 ## Tech Stack
@@ -26,6 +26,7 @@ A web-based outfit planning app that helps you plan, organize, and save outfit c
    cd FitCheck--web
    ```
 
+## Frontend Setup
 2. **Install frontend dependencies**
    ```bash
    npm install
@@ -33,22 +34,24 @@ A web-based outfit planning app that helps you plan, organize, and save outfit c
    yarn install
    ```
 
-3. **Start the development server**
+3. **Start the front end**
    ```bash
+   cd frontend
    npm run dev
-   # or
-   yarn dev
-   # or
-   pnpm dev
-   # or
-   bun dev
    ```
 
-4. **Open your browser**
-   Navigate to [http://localhost:3000](http://localhost:3000)
-
 ### Backend Setup
-*Backend setup instructions will be added when Spring Boot backend is implemented.*
+4. **Start the Backend**
+```bash
+  cd backend
+  mvn spring-boot:run
+ ```
+
+
+### Running Services
+- **Frontend:** http://localhost:3000
+- **Backend:** http://localhost:8080
+
 
 ## Development Roadmap
 
@@ -57,18 +60,19 @@ A web-based outfit planning app that helps you plan, organize, and save outfit c
 - [x] Project setup and configuration
 - [x] Email/password authentication
 - [ ] Wardrobe management:
-  - [ ] Add new clothing via a text description
+- [ ] Add new clothing via a text description
   - [x] backend
- - [ ] Specify clothing type (JACKET, TOP, BOTTOM, SOCKS, SHOES)
+- [ ] Specify clothing type (JACKET, TOP, BOTTOM, SOCKS, SHOES)
   - [x] backend
- - [ ] View all clothing items by type
+- [ ] View all clothing items by type
   - [x] backend
- - [ ] Remove items from wardrobe
-  - [ ] backend
+- [ ] Remove items from wardrobe
+  - [x] backend
+- [x] fix login and registration UI so it matches that of the homepage
+
 
 ### Phase 2: Stored Outfit Creation, Photo Upload And Improved Login
 - [ ] Swipe across different types and compile an outfit
-- [ ] fix login and registration UI so it matches that of the homepage
 - [ ] "Remember me" for login
 - [ ] Add clothing items with photo upload
 - [ ] Full functioning password retrieval if forgotten password

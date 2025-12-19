@@ -30,7 +30,7 @@ protected void doFilterInternal (HttpServletRequest request,
  String path = request.getRequestURI();
 
 
-        if (path.startsWith("/api/auth")) {
+        if (path.startsWith("/api/auth/")) {
             filterChain.doFilter(request, response);
             return;
         }

@@ -1,4 +1,7 @@
 package io.github.nikkicerniuk.fitcheckweb.service;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.SignatureAlgorithm;
 
 //1. use a library like jjwt for token generation 
 //2. validate the token so you can extract a userID from it
@@ -45,10 +48,10 @@ public class TokenService{
     //extracts the user's identity from the token 
     public String extractSubject(String token) { //pulls out user information you put in the user token so you can know who the user is later for that request 
         Claims claims = Jwts.parser() //the parser just reads the data. Claims is a class provided by teh Jwt library. claims class holds all the things chained ot the token. parser is how you access these bits of data 
-                .setSigningKey(secretKey) //
+                .setSigningKey(secretKey) 
+                .build() //need to do this before parsing claims beecause you have to actually build the parser first 
                 .parseClaimsJws(token) 
                 .getBody();
-
         return claims.getSubject();
     }
 
@@ -57,6 +60,7 @@ public class TokenService{
         try {
             Jwts.parser()
                     .setSigningKey(secretKey)
+                    .build() // have to build before we can parse 
                     .parseClaimsJws(token); // parseClaimsJws is a method from the JJWT library. 
             return true; 
         } catch (Exception e) {

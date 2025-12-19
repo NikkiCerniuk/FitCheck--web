@@ -38,6 +38,7 @@ public class SecurityConfig{
      * throws Exception is needed here because HttpSecurity can throw exceptions. Otherwise, the compiler will complain.
      */
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{ 
+       
         http
             //TODO: re-enable CSRF later. we are just making sure that the front end is connected to the backend 
         .cors(cors->cors.configurationSource(corsConfigurationSource())) //gives a bean to springboot that lets it know what requests for webstie access to allow 
