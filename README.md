@@ -1,7 +1,7 @@
 # FitCheck
 A web-based outfit planning app that helps you plan, organize, and save outfit combinations using your actual wardrobe. 
 
-This project is currently on hold while I complete my MS CS at UPenn. I will finish the MVP portion before any technical interviews.
+This project is currently on hold while I complete my MS CS at UPenn. I am creating FitCheck to build my understanding of full stack development. 
 
  
 **Currently in development - Phase 1 MVP in progress**
